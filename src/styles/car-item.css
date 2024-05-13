@@ -1,11 +1,11 @@
 .car__item {
-  border: 1px solid #7c8a9736;
+  border: var(--secondary-color) 2px solid;
   padding: 20px;
   border-radius: 5px;
 }
 
 .car__item-info span i {
-  color: #f9a826;
+  color: var(--secondary-color);
   font-size: 1.1rem;
 }
 
@@ -13,7 +13,7 @@
   border-radius: 0;
   border: none;
   outline: none;
-  background: #000d6b;
+  background: var(--primary-color);
   padding: 8px 0px;
 }
 
@@ -37,11 +37,13 @@
 
 .car__item-content h4 {
   font-size: 1.8rem;
+  color: var(--secondary-color);
 }
 
 .car__item-content h6 {
   font-size: 1.2rem;
   font-weight: 600;
+  background-color: var(--secondary-color);
 }
 
 @media only screen and (max-width: 992px) {

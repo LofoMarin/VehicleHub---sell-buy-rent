@@ -1,30 +1,39 @@
+:root {
+  --primary-color: #1c1c1c;
+  --secondary-color: #1c1c1c;
+  --accent-color: #ffc107;
+  --text-color: #ffffff;
+}
+
+/* Estilos del slider */
 .slider__item {
   max-width: 100%;
   height: 650px;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider__item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  z-index: 1;
 }
 
 .slider__item-01 {
-  background: linear-gradient(rgb(0, 13, 107, 0.5), rgb(0, 13, 107, 0.5)),
-    url("../assets/all-images/slider-img/slider-1.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: url("../assets/all-images/slider-img/slider-1.jpg") no-repeat center center/cover;
 }
 
 .slider__item-02 {
-  background: linear-gradient(rgb(0, 13, 107, 0.5), rgb(0, 13, 107, 0.5)),
-    url("../assets/all-images/slider-img/slider-2.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: url("../assets/all-images/slider-img/slider-2.jpg") no-repeat center center/cover;
 }
 
 .slider__item-03 {
-  background: linear-gradient(rgb(0, 13, 107, 0.5), rgb(0, 13, 107, 0.5)),
-    url("../assets/all-images/slider-img/slider-3.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: url("../assets/all-images/slider-img/slider-3.jpg") no-repeat center center/cover;
 }
 
 .hero__slider {
@@ -33,31 +42,52 @@
 
 .slider__content {
   padding-top: 150px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--text-color);
+  animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .slider__content h1 {
   font-size: 3.2rem;
   font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .reserve__btn {
-  background: #fff !important;
-  color: #000d6b !important;
+  background: var(--accent-color) !important;
+  color: var(--primary-color) !important;
   border: none;
   outline: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
 }
 
 .reserve__btn a {
   text-decoration: none;
   font-weight: 600;
-  color: #000d6b;
+  color: var(--primary-color);
 }
 
 .reserve__btn:hover {
-  background: #000d6b;
-  color: #fff;
+  background: var(--secondary-color);
+  color: var(--text-color);
 }
 
+/* Estilos para dispositivos móviles */
 @media only screen and (max-width: 992px) {
   .slider__item {
     height: 530px;

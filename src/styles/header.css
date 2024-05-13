@@ -1,28 +1,32 @@
-.header__top {
-  padding: 10px 0px;
-  background: #000d6b;
-  color: #fff;
+/* Paleta de colores moderna */
+:root {
+  --primary-color: #1c1c1c;
+  --secondary-color: #1c1c1c;
+  --accent-color: #ffc107;
+  --text-color: #ffffff;
 }
 
-.header__top__left {
-  display: flex;
-  align-items: center;
-  column-gap: 1rem;
+/* Estilos globales */
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text-color);
+  background-color: var(--primary-color);
+}
+
+/* Estilos del encabezado */
+.header__top {
+  padding: 10px 0;
+  background: var(--secondary-color);
+  color: var(--text-color);
 }
 
 .header__top__left span {
   font-size: 0.9rem;
 }
 
-.header__top__help {
-  display: flex;
-  align-items: center;
-  column-gap: 0.4rem;
-}
-
 .header__top__help i {
-  background: #fff;
-  color: #000d6b;
+  background: var(--text-color);
+  color: var(--secondary-color);
   padding: 2px 4px;
   border-radius: 50px;
   font-size: 0.7rem;
@@ -30,18 +34,22 @@
 
 .header__top__right a {
   text-decoration: none;
-  color: #fff;
+  color: var(--text-color);
   font-size: 0.9rem;
 }
 
 .header__top__right a:hover {
-  color: #fff;
+  color: var(--accent-color);
 }
 
-/* ============ header middle style =========== */
-
 .header__middle {
-  padding: 20px 0px;
+  padding: 20px 0;
+}
+
+.logo h1 a {
+  text-decoration: none;
+  color: var(--accent-color);
+  font-weight: 700;
 }
 
 .logo h1 a span {
@@ -52,33 +60,25 @@
   font-size: 2.2rem;
 }
 
-.logo h1 a {
-  text-decoration: none;
-  color: #000d6b;
-  font-weight: 700;
-}
-
-.logo h1 {
-  line-height: 1.5rem;
-}
-
 .header__location span i {
   font-size: 2.2rem;
-  color: #000d6b;
+  color: var(--accent-color);
 }
 
 .header__location-content h4 {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #000d6b;
+  color: var(--accent-color);
 }
 
 .header__location-content h6 {
   font-weight: 600;
+  font-size: 1rem;
+  color: #000000;
 }
 
 .header__btn {
-  background: #000d6b !important;
+  background: var(--secondary-color) !important;
   padding: 10px 20px;
   border: none;
   outline: none;
@@ -90,24 +90,23 @@
   align-items: center;
   column-gap: 0.4rem;
   text-decoration: none;
-  color: #fff;
+  color: var(--text-color);
   justify-content: end;
   font-size: 0.9rem;
 }
 
 .header__btn a:hover {
-  color: #fff;
+  color: var(--accent-color);
 }
 
-/* ================ main navbar styles =========== */
-
+/* Estilos de la barra de navegación */
 .main__navbar {
-  padding: 15px 0px;
-  background: #000d6b;
+  padding: 15px 0;
+  background: var(--primary-color);
 }
 
 .mobile__menu i {
-  color: #fff;
+  color: var(--text-color);
   font-size: 1.3rem;
   cursor: pointer;
 }
@@ -123,44 +122,46 @@
 }
 
 .nav__item {
-  color: #fff;
+  color: var(--text-color);
   text-decoration: none;
   transition: 0.3s;
 }
 
 .nav__item:hover {
-  color: #f9a826;
+  color: var(--accent-color);
 }
 
 .search__box {
-  border: 1px solid #7c8a972f;
+  border: 1px solid rgba(124, 138, 151, 0.2);
   padding: 7px 12px;
   display: flex;
   align-items: center;
   border-radius: 50px;
-  background: #020a4de9;
+  background: rgba(95, 95, 95, 0.9);
 }
 
 .search__box input {
   background: transparent;
   border: none;
   outline: none;
-  color: #fff;
+  color: var(--text-color);
   cursor: pointer;
 }
 
 .search__box input::placeholder {
   font-size: 0.8rem;
 }
+
 .search__box span i {
-  color: rgba(255, 255, 255, 0.555);
+  color: rgba(196, 196, 196, 0.555);
   cursor: pointer;
 }
 
 .nav__active {
-  color: #f9a826;
+  color: var(--accent-color);
 }
 
+/* Estilos para dispositivos móviles */
 @media only screen and (max-width: 768px) {
   .header__top,
   .header__middle,
@@ -173,7 +174,7 @@
   }
 
   .navigation {
-    background: rgb(0, 13, 107, 0.6);
+    background: rgba(0, 13, 107, 0.6);
     width: 100%;
     height: 100%;
     position: fixed;
@@ -186,7 +187,7 @@
   .menu {
     width: 250px;
     height: 100%;
-    background: #fff;
+    background: var(--primary-color);
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -195,7 +196,7 @@
   }
 
   .menu a {
-    color: #000d6b;
+    color: var(--text-color);
     font-weight: 600;
     font-size: 0.9rem;
   }
