@@ -43,7 +43,7 @@ const Footer = () => {
                 <Link to="/home" className=" d-flex align-items-center gap-2">
                   <i class="ri-car-line"></i>
                   <span>
-                    Vehicule <br /> Hub
+                    Vehicle <br /> Hub
                   </span>
                 </Link>
               </h1>
@@ -98,7 +98,7 @@ const Footer = () => {
             <div className="footer__bottom">
               <p className="section__description d-flex align-items-center justify-content-center gap-1 pt-4">
                 <i class="ri-copyright-line"></i>Copyright {year}, Developed by
-                VehiculeHub. All rights reserved.
+                VehicleHub. All rights reserved.
               </p>
             </div>
           </Col>

@@ -73,7 +73,7 @@ const Header = () => {
                   <Link to="/home" className=" d-flex align-items-center gap-2">
                     <i class="ri-car-line"></i>
                     <span>
-                      Vehicule <br /> Hub
+                      Vehicle <br /> Hub
                     </span>
                   </Link>
                 </h1>
