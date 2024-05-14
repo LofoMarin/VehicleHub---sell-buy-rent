@@ -1,38 +1,37 @@
 .car__item {
-  border: var(--secondary-color) 2px solid;
   padding: 20px;
-  border-radius: 5px;
+  background-color: var(--ligth);
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
+ 
 .car__item-info span i {
   color: var(--secondary-color);
   font-size: 1.1rem;
 }
 
 .car__item-btn {
-  border-radius: 0;
+  border-radius: 2rem;
   border: none;
   outline: none;
   background: var(--primary-color);
   padding: 8px 0px;
+  width: 10rem;
 }
 
-.car__item-btn a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: 500;
-}
 
 .car__item-btn a:hover {
-  color: #fff;
+  color: var(--accent-color);
 }
 .car__btn-details {
-  background: #f9a826;
-  border-radius: 0px 4px 4px 0px;
+  background: #eee;
+  
 }
-
-.car__btn-rent {
-  border-radius: 4px 0px 0px 4px;
+.car__btn-details a{
+  color: black;
+}
+.car__btn-rent a{
+  color: white;
 }
 
 .car__item-content h4 {
@@ -43,9 +42,13 @@
 .car__item-content h6 {
   font-size: 1.2rem;
   font-weight: 600;
-  background-color: var(--secondary-color);
+  color: black;
 }
 
+.buttons_container{
+  display: flex;
+justify-content: space-around;
+}
 @media only screen and (max-width: 992px) {
   .car__item h4 {
     font-size: 1.1rem;
