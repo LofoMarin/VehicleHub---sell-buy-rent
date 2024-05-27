@@ -10,6 +10,10 @@ const navLinks = [
     display: "Home",
   },
   {
+    path:'/rent',
+    display:'Rentar'
+  },
+  {
     path: "/about",
     display: "Nosotros",
   },
@@ -25,7 +29,8 @@ const navLinks = [
   {
     path: "/contact",
     display: "Contacto",
-  },
+  }
+  
 ];
 
 const Header = () => {
