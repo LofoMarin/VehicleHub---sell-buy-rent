@@ -12,27 +12,27 @@ class CarListing extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      Vehicle: [],
+      vehicule: [],
       currentPage: 1,
       itemsPerPage: 12,
     };
   }
 
-  async refreshVehicle() {
-    var VehicleList = [];
+  async refreshVehicule() {
+    var vehiculeList = [];
     const db = getFirestore(app);
-    const VehicleCol = collection(db, "Vehicle");
-    const VehicleSnapshot = await getDocs(VehicleCol);
-    VehicleSnapshot.forEach((doc) => {
-      let Vehicle = doc.data();
-      Vehicle.id = doc.id;
-      VehicleList.push(Vehicle);
+    const vehiculeCol = collection(db, "vehicule");
+    const vehiculeSnapshot = await getDocs(vehiculeCol);
+    vehiculeSnapshot.forEach((doc) => {
+      let vehicule = doc.data();
+      vehicule.id = doc.id;
+      vehiculeList.push(vehicule);
     });
-    this.setState({ Vehicle: VehicleList });
+    this.setState({ vehicule: vehiculeList });
   }
 
   componentDidMount() {
-    this.refreshVehicle();
+    this.refreshVehicule();
     window.scrollTo(0, 0); // Scroll al inicio al montar el componente
   }
 
@@ -52,8 +52,8 @@ class CarListing extends Component {
   };
 
   handleNextPage = () => {
-    const { currentPage, itemsPerPage, Vehicle } = this.state;
-    const totalPages = Math.ceil(Vehicle.length / itemsPerPage);
+    const { currentPage, itemsPerPage, vehicule } = this.state;
+    const totalPages = Math.ceil(vehicule.length / itemsPerPage);
     if (currentPage < totalPages) {
       this.setState({ currentPage: currentPage + 1 }, () => {
         window.scrollTo(0, 0); // Scroll al inicio al cambiar de página
@@ -62,14 +62,14 @@ class CarListing extends Component {
   };
 
   render() {
-    const { Vehicle, currentPage, itemsPerPage } = this.state;
-    console.log(Vehicle);
+    const { vehicule, currentPage, itemsPerPage } = this.state;
+    console.log(vehicule);
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = Vehicle.slice(indexOfFirstItem, indexOfLastItem);
+    const currentItems = vehicule.slice(indexOfFirstItem, indexOfLastItem);
     const pageNumbers = [];
 
-    for (let i = 1; i <= Math.ceil(Vehicle.length / itemsPerPage); i++) {
+    for (let i = 1; i <= Math.ceil(vehicule.length / itemsPerPage); i++) {
       pageNumbers.push(i);
     }
 
@@ -117,7 +117,7 @@ class CarListing extends Component {
                     className="pagination-button"
                     onClick={this.handleNextPage}
                     disabled={
-                      currentPage === Math.ceil(Vehicle.length / itemsPerPage)
+                      currentPage === Math.ceil(vehicule.length / itemsPerPage)
                     }
                   >
                     <i className="ri-arrow-right-line"></i>
