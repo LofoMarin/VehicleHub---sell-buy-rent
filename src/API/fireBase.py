@@ -3,7 +3,7 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 
-cred = credentials.Certificate(r"Diseño\vehiculehub-firebase-adminsdk-mziy5-5eaed68c9e.json")
+cred = credentials.Certificate(r"Diseño\VehicleHub-firebase-adminsdk-mziy5-5eaed68c9e.json")
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
@@ -16,5 +16,5 @@ for i in range(len(NombresCarros)):
         'price': precios[i],
         'speed': kilometrajeCarro[i] 
     }
-    doc_ref = db.collection('vehicule').document()
+    doc_ref = db.collection('Vehicle').document()
     doc_ref.set(datos)
