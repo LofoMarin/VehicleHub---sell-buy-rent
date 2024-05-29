@@ -4,6 +4,7 @@
   <img src="public/page_intro.jpeg">
 </p>
 
+<p align='center'>
 <img src="https://img.shields.io/badge/Frontend-React-blue?logo=react" alt="React">
   <img src="https://img.shields.io/badge/Router-React_Router-blue?logo=react-router" alt="React Router">
   <img src="https://img.shields.io/badge/HTTP_Client-Axios-blue?logo=axios" alt="Axios">
