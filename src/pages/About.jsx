@@ -28,21 +28,16 @@ const About = () => {
             <Col lg="6" md="6" sm="12">
               <div className="about__page-content">
                 <h2 className="section__title">
-                  We Are Committed To Provide Safe Ride Solutions
+                Estamos comprometidos a ofrecer soluciones de transporte seguras
                 </h2>
 
                 <p className="section__description">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Eveniet veniam assumenda aperiam accusantium ex autem
-                  perferendis repellendus nostrum delectus. Nemo et dolore est
-                  tempore rem minima adipisci magni dolorum ipsam.
+                En nuestra empresa, la seguridad de nuestros pasajeros es nuestra máxima prioridad. Nos dedicamos a proporcionar soluciones de transporte confiables y seguras que garanticen tranquilidad en cada viaje. Implementamos rigurosos protocolos de seguridad y mantenemos nuestros vehículos en las mejores condiciones para asegurar un trayecto seguro y cómodo. 
                 </p>
 
                 <p className="section__description">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Eveniet veniam assumenda aperiam accusantium ex autem
-                  perferendis repellendus nostrum delectus. Nemo et dolore est
-                  tempore rem minima adipisci magni dolorum ipsam.
+                Nuestro equipo de conductores profesionales está altamente capacitado y comprometido con la excelencia en el servicio, siempre enfocado en la protección y bienestar de nuestros clientes. 
+                Con nosotros, puedes confiar en que llegarás a tu destino de manera segura y sin preocupaciones.
                 </p>
 
                 <div className=" d-flex align-items-center gap-3 mt-4">

@@ -7,8 +7,8 @@ function Rent() {
         <section className='box_rent'>
             <div className='container'>
                 <div className='left_container'>
-                    <h1>La forma más fácil de hacerse cargo de un contrato de una renta</h1>
-                    <p>Vives en Barranquilla y quiere viajar por toda Colombia?</p>
+                    <h1>La forma más fácil de hacerse cargo de un contrato de renta</h1>
+                    <p>¿Vives en Barranquilla y quieres viajar por toda Colombia?</p>
                     <div className='inputs_rent'>
                         <div className='div_car_model'>
                             <label htmlFor="">Car Model</label>

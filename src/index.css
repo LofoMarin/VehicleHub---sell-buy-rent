@@ -47,7 +47,7 @@ ul {
 }
 
 .section__title {
-  color: var(--text-color);
+  color: rgba(252, 248, 248, 0.929);
   font-weight: 700;
   font-size: 2rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
