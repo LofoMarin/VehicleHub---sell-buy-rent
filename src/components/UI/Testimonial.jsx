@@ -84,7 +84,7 @@ const Testimonial = () => {
           <img src={ava07} alt="" className="w-25 h-25 rounded-2" />
 
           <div>
-            <h6 className="mb-0 mt-3">Luisangel Parra</h6>
+            <h6 className="mb-0 mt-3">Mariana Acosta</h6>
             <p className="section__description">Cliente</p>
           </div>
         </div>
@@ -99,7 +99,7 @@ const Testimonial = () => {
           <img src={ava08} alt="" className="w-25 h-25 rounded-2" />
 
           <div>
-            <h6 className="mb-0 mt-3">Moisés Torres</h6>
+            <h6 className="mb-0 mt-3">José Fragoso</h6>
             <p className="section__description">Cliente</p>
           </div>
         </div>

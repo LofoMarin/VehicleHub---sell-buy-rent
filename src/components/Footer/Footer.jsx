@@ -49,7 +49,7 @@ const Footer = () => {
               </h1>
             </div>
             <p className="footer__logo-content">
-              YEAH
+            Tu Viaje Comienza Aquí
             </p>
           </Col>
 
@@ -74,7 +74,7 @@ const Footer = () => {
 
               <p className="office__info">Email: jsacosta@VehicleHub.com</p>
 
-              <p className="office__info">Office Time: 10am - 7pm</p>
+              <p className="office__info">Horario de Oficinas: 10am - 7pm</p>
             </div>
           </Col>
 
