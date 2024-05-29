@@ -15,7 +15,6 @@ body {
   background-color: var(--primary-color);
 }
 
-/* Estilos del encabezado */
 .header__top {
   padding: 10px 0;
   background: var(--secondary-color);
@@ -23,7 +22,8 @@ body {
 }
 
 .header__top__left span {
-  font-size: 0.9rem;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .header__top__help i {
@@ -31,7 +31,8 @@ body {
   color: var(--secondary-color);
   padding: 2px 4px;
   border-radius: 50px;
-  font-size: 0.7rem;
+  font-size: 1rem;
+  padding-left: 3px;
 }
 
 .header__top__right a {
@@ -42,6 +43,43 @@ body {
 
 .header__top__right a:hover {
   color: var(--accent-color);
+}
+
+.user-info {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out;
+}
+
+.user-greeting {
+  margin-right: 10px;
+  transition: margin-right 0.3s ease-in-out;
+}
+
+.logout-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: color 0.3s ease-in-out;
+}
+
+.logout-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.logout-icon {
+  font-size: 1.3rem;
+}
+
+.logout-btn:hover {
+  color: #ff3c3c;
+  transition: color 0.3s ease-in-out;
 }
 
 .header__middle {
