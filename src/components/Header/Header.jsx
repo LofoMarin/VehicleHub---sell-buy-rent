@@ -3,7 +3,6 @@ import { Container, Row, Col } from 'reactstrap';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../pages/AuthContext'; // Importa el contexto de autenticación
 import '../../styles/header.css';
-import { RiLogoutCircleRLine } from 'react-icons/ri';
 
 const navLinks = [
   {
