@@ -18,7 +18,7 @@ body {
 .header__top {
   padding: 10px 0;
   background: var(--secondary-color);
-  color: var(--text-color);
+  color: white;
 }
 
 .header__top__left span {
@@ -28,7 +28,7 @@ body {
 
 .header__top__help i {
   background: var(--text-color);
-  color: var(--secondary-color);
+  color: var(--accent-color);
   padding: 2px 4px;
   border-radius: 50px;
   font-size: 1rem;
@@ -37,7 +37,7 @@ body {
 
 .header__top__right a {
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--accent-color);
   font-size: 0.9rem;
 }
 
@@ -130,7 +130,7 @@ body {
   align-items: center;
   column-gap: 0.4rem;
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--accent-color);
   justify-content: end;
   font-size: 0.9rem;
 }
