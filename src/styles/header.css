@@ -37,7 +37,7 @@ body {
 
 .header__top__right a {
   text-decoration: none;
-  color: var(--accent-color);
+  color: var(--text-color);
   font-size: 0.9rem;
 }
 
@@ -64,7 +64,7 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--text-color);
+  color: #f6f6f9;
   transition: color 0.3s ease-in-out;
 }
 
