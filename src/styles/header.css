@@ -37,8 +37,10 @@ body {
 
 .header__top__right a {
   text-decoration: none;
-  color: var(--text-color);
-  font-size: 0.9rem;
+  color: #eee;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-right: 1.5
 }
 
 .header__top__right a:hover {

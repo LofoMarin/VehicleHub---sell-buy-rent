@@ -85,7 +85,7 @@ const CarDetails = () => {
                       class="ri-settings-2-line"
                       style={{ color: "#f9a826" }}
                     ></i>{" "}
-                    {carDetails.automatic}
+                    {carDetails.box}
                   </span>
 
                   <span className=" d-flex align-items-center gap-1 section__description">
@@ -103,7 +103,7 @@ const CarDetails = () => {
                 >
                   <span className=" d-flex align-items-center gap-1 section__description">
                     <i class="ri-map-pin-line" style={{ color: "#f9a826" }}></i>{" "}
-                    {carDetails.gps}
+                    {carDetails.fuel}
                   </span>
 
                   <span className=" d-flex align-items-center gap-1 section__description">
@@ -111,7 +111,7 @@ const CarDetails = () => {
                       class="ri-wheelchair-line"
                       style={{ color: "#f9a826" }}
                     ></i>{" "}
-                    {carDetails.seatType}
+                    {carDetails.state}
                   </span>
 
                   <span className=" d-flex align-items-center gap-1 section__description">
@@ -119,7 +119,7 @@ const CarDetails = () => {
                       class="ri-building-2-line"
                       style={{ color: "#f9a826" }}
                     ></i>{" "}
-                    {carDetails.brand}
+                    {carDetails.color}
                   </span>
                 </div>
               </div>
@@ -127,14 +127,14 @@ const CarDetails = () => {
 
             <Col lg="7" className="mt-5">
               <div className="booking-info mt-5">
-                <h5 className="mb-4 fw-bold ">Booking Information</h5>
+                <h5 className="mb-4 fw-bold ">Información de la Reserva </h5>
                 <BookingForm />
               </div>
             </Col>
 
             <Col lg="5" className="mt-5">
               <div className="payment__info mt-5">
-                <h5 className="mb-4 fw-bold ">Payment Information</h5>
+                <h5 className="mb-4 fw-bold ">Información de Pago</h5>
                 <PaymentMethod />
               </div>
             </Col>

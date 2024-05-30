@@ -1,11 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import Helmet from "../components/Helmet/Helmet";
 import CommonSection from "../components/UI/CommonSection";
 import CarItem from "../components/UI/CarItem";
-import { Component } from "react";
 import { app } from "../API/firebase";
-import { getFirestore, getDocs, collection } from "firebase/firestore/lite";
+import { getFirestore, getDocs, collection, doc, updateDoc } from "firebase/firestore/lite";
 import "../styles/pagination.css";
 
 class CarListing extends Component {
@@ -35,6 +34,19 @@ class CarListing extends Component {
     this.refreshVehicule();
     window.scrollTo(0, 0); // Scroll al inicio al montar el componente
   }
+
+  handleReserve = async (vehicleId) => {
+    // Actualizar estado del vehículo a "RESERVADO" en la base de datos
+    const db = getFirestore(app);
+    const vehicleRef = doc(db, "vehicule", vehicleId);
+    await updateDoc(vehicleRef, { status: "RESERVADO" });
+
+    // Actualizar el estado local del vehículo a "RESERVADO" y filtrar para no mostrarlo
+    const updatedVehicles = this.state.vehicule.filter((vehicle) => {
+      return vehicle.id !== vehicleId; // Filtrar el vehículo reservado
+    });
+    this.setState({ vehicule: updatedVehicles });
+};
 
   handleClick = (event) => {
     this.setState({ currentPage: Number(event.target.id) }, () => {
@@ -99,7 +111,11 @@ class CarListing extends Component {
           <Container>
             <Row>
               {currentItems.map((item) => (
-                <CarItem item={item} key={item.id} />
+                <CarItem
+                  item={item}
+                  key={item.id}
+                  onReserve={this.handleReserve}
+                />
               ))}
             </Row>
             <Row>
@@ -117,7 +133,8 @@ class CarListing extends Component {
                     className="pagination-button"
                     onClick={this.handleNextPage}
                     disabled={
-                      currentPage === Math.ceil(vehicule.length / itemsPerPage)
+                      currentPage ===
+                      Math.ceil(vehicule.length / itemsPerPage)
                     }
                   >
                     <i className="ri-arrow-right-line"></i>

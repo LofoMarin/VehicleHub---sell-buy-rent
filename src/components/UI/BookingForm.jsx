@@ -3,9 +3,11 @@ import "../../styles/booking-form.css";
 import { Form, FormGroup } from "reactstrap";
 import { getDatabase, ref, set } from "firebase/database";
 import { useAuth } from '../../pages/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const BookingForm = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -41,6 +43,7 @@ const BookingForm = () => {
         const userBookingRef = ref(db, 'bookings/' + user.uid + '/' + Date.now());
         await set(userBookingRef, bookingData);
         setNotice("Booking saved successfully!");
+        navigate('/home'); // Redirigir a la página de inicio después de guardar los datos
       } catch (error) {
         console.error("Error saving booking data:", error);
         setNotice("There was an error saving your booking. Please try again.");

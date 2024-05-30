@@ -55,16 +55,16 @@ const Signup = () => {
                 {notice && <div className="signup-notice">{notice}</div>}
                 <form onSubmit={signupWithUsernameAndPassword}>
                     <div className="form-group">
-                        <label htmlFor="signupFirstName" className="signup-label">First Name</label>
-                        <input type="text" className="form-control signup-input" id="signupFirstName" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
+                        <label htmlFor="signupFirstName" className="signup-label">Nombres</label>
+                        <input type="text" className="form-control signup-input" id="signupFirstName" placeholder="Nombres" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="signupLastName" className="signup-label">Last Name</label>
-                        <input type="text" className="form-control signup-input" id="signupLastName" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
+                        <label htmlFor="signupLastName" className="signup-label">Apellidos</label>
+                        <input type="text" className="form-control signup-input" id="signupLastName" placeholder="Apellidos" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="signupPhone" className="signup-label">Phone Number</label>
-                        <input type="tel" className="form-control signup-input" id="signupPhone" placeholder="Phone Number" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                        <label htmlFor="signupPhone" className="signup-label">Celular</label>
+                        <input type="tel" className="form-control signup-input" id="signupPhone" placeholder="Celular" value={phone} onChange={(e) => setPhone(e.target.value)} required />
                     </div>
                     <div className="form-group">
                         <label htmlFor="signupEmail" className="signup-label">Email address</label>
