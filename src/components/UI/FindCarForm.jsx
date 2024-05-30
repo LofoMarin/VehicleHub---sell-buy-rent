@@ -1,22 +1,43 @@
-import React from "react";
-import "../../styles/find-car-form.css";
+import React, { useState } from "react";
 import "../../styles/find-car-form.css";
 import { Form, FormGroup } from "reactstrap";
 
-const FindCarForm = () => {
+const FindCarForm = ({ onFilterSubmit }) => {
+  const [modelo, setModelo] = useState("");
+  const [año, setAño] = useState("");
+  const [tipo, setTipo] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onFilterSubmit({ modelo, año, tipo });
+  };
+
   return (
-    <Form className="form">
-      <div className=" d-flex align-items-center justify-content-between flex-wrap">
+    <Form className="form" onSubmit={handleSubmit}>
+      <div className="d-flex align-items-center justify-content-between flex-wrap">
         <FormGroup className="form__group">
-          <input type="text" placeholder="Inicio Dirección" required />
+          <input
+            type="text"
+            placeholder="Modelo"
+            value={modelo}
+            onChange={(e) => setModelo(e.target.value)}
+          />
         </FormGroup>
 
         <FormGroup className="form__group">
-          <input type="text" placeholder="Fin Dirección" required />
+          <input
+            type="text"
+            placeholder="Año"
+            value={año}
+            onChange={(e) => setAño(e.target.value)}
+          />
         </FormGroup>
 
         <FormGroup className="form__group">
-          <input type="date" placeholder="Date" required /> 
+          <input
+            type="date"
+            placeholder="Fecha"
+          />
         </FormGroup>
 
         <FormGroup className="form__group">
@@ -24,22 +45,22 @@ const FindCarForm = () => {
             className="journey__time"
             type="time"
             placeholder="Tiempo de Viaje"
-            required
           />
         </FormGroup>
+
         <FormGroup className="select__group">
-          <select>
-            <option value="ac">Electrico</option>
-            <option value="non-ac">No Electrico</option>
-            <option value="ac">Gasolina</option>
-            <option value="non-ac">Diesel</option>
-            <option value="ac">Hibrido</option>
-            <option value="non-ac">Otros</option>
+          <select value={tipo} onChange={(e) => setTipo(e.target.value)}>
+            <option value="">Seleccione tipo</option>
+            <option value="Gasolina">Gasolina</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Híbrido">Híbrido</option>
           </select>
         </FormGroup>
 
         <FormGroup className="form__group">
-          <button className="btn find__car-btn">Buscar Carro</button>
+          <button className="btn find__car-btn" type="submit">
+            Buscar Carro
+          </button>
         </FormGroup>
       </div>
     </Form>

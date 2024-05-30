@@ -1,31 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { Container, Row, Col } from "reactstrap";
-import Helmet from "../components/Helmet/Helmet";
+import React from "react";
 import HeroSlider from "../components/UI/HeroSlider";
-import FindCarForm from "../components/UI/FindCarForm";
+import Helmet from "../components/Helmet/Helmet";
+import { Container, Row, Col } from "reactstrap";
+import FindCarForm from "C:/Users/kevin/OneDrive/Documentos/Vs Files/Proyecto Diseño/src/components/UI/FindCarForm";
 import AboutSection from "../components/UI/AboutSection";
 import ServicesList from "../components/UI/ServicesList";
+import carData from "../assets/data/carData";
 import CarItem from "../components/UI/CarItem";
 import BecomeDriverSection from "../components/UI/BecomeDriverSection";
 import Testimonial from "../components/UI/Testimonial";
-import { getFirestore, getDocs, collection } from "firebase/firestore/lite";
-import { app } from "../API/firebase";
 
 const Home = () => {
-  const [carData, setCarData] = useState([]);
-
-  useEffect(() => {
-    const fetchCarData = async () => {
-      const db = getFirestore(app);
-      const carCol = collection(db, "vehicule");
-      const carSnapshot = await getDocs(carCol);
-      const carList = carSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      setCarData(carList);
-    };
-
-    fetchCarData();
-  }, []);
-
   return (
     <Helmet title="Home">
       {/* ============= Hero section =========== */}
@@ -40,7 +25,7 @@ const Home = () => {
                 </div>
               </Col>
               <Col lg="8" md="8" sm="12">
-                <FindCarForm />
+              <FindCarForm/>
               </Col>
             </Row>
           </Container>

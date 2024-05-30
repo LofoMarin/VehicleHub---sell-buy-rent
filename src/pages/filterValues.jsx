@@ -1,15 +1,13 @@
-
-import React from "react";
+import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import Helmet from "../components/Helmet/Helmet";
 import CommonSection from "../components/UI/CommonSection";
 import CarItem from "../components/UI/CarItem";
-import { Component } from "react";
 import { app } from "../API/firebase";
-import { getFirestore, getDocs, collection } from "firebase/firestore/lite";
+import { getFirestore, getDocs, collection, query, where } from "firebase/firestore/lite";
 import "../styles/pagination.css";
 
-class CarListing extends Component {
+class FilterValues extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,21 +18,45 @@ class CarListing extends Component {
   }
 
   async refreshVehicule() {
-    var vehiculeList = [];
+    const { filters } = this.props;
+    let vehiculeList = [];
     const db = getFirestore(app);
     const vehiculeCol = collection(db, "vehicule");
-    const vehiculeSnapshot = await getDocs(vehiculeCol);
+
+    // Firestore query setup
+    let q = vehiculeCol;
+
+    // Aplicar otros filtros solo si no están vacíos o nulos
+    if (filters.modelo) {
+      console.log(filters.modelo)
+      q = query(q, where('carName', 'in', [filters.modelo]));
+    }
+    if (filters.año) {
+      q = query(q, where("model", "==", filters.año));
+    }
+    if (filters.tipo) {
+      q = query(q, where("fuel", "==", filters.tipo));
+    }
+
+    const vehiculeSnapshot = await getDocs(q);
     vehiculeSnapshot.forEach((doc) => {
       let vehicule = doc.data();
-      vehicule.id = doc.id;
+      vehicule.id = doc.mod;
       vehiculeList.push(vehicule);
     });
+
     this.setState({ vehicule: vehiculeList });
   }
 
   componentDidMount() {
     this.refreshVehicule();
     window.scrollTo(0, 0); // Scroll al inicio al montar el componente
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.filters !== prevProps.filters) {
+      this.refreshVehicule();
+    }
   }
 
   handleClick = (event) => {
@@ -95,8 +117,6 @@ class CarListing extends Component {
 
     return (
       <Helmet title="Cars">
-        <CommonSection title="Lista de Autos" />
-        <section className="section_nueva">
           <Container>
             <Row>
               {currentItems.map((item) => (
@@ -127,10 +147,9 @@ class CarListing extends Component {
               </Col>
             </Row>
           </Container>
-        </section>
       </Helmet>
     );
   }
 }
 
-export default CarListing;
+export default FilterValues;
