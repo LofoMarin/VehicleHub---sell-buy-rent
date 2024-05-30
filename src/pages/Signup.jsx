@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { auth } from "../API/firebase.js";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, createUserWithEmailAndPassword } from "../API/firebase.js";
 import { Link, useNavigate } from "react-router-dom";
+import { getDatabase, ref, set } from "firebase/database";
 import "../styles/signup.css";
 
 const Signup = () => {
@@ -9,18 +9,40 @@ const Signup = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [phone, setPhone] = useState("");
     const [notice, setNotice] = useState("");
+
+    const saveUserDataToDatabase = async (userId, email) => {
+        try {
+            const db = getDatabase();
+            set(ref(db, 'usuarios/' + userId), {
+                email: email,
+                firstName: firstName,
+                lastName: lastName,
+                phone: phone
+            });
+        } catch (error) {
+            console.error("Error saving user data:", error);
+        }
+    };
 
     const signupWithUsernameAndPassword = async (e) => {
         e.preventDefault();
 
         if (password === confirmPassword) {
             try {
-                await createUserWithEmailAndPassword(auth, email, password);
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+
+                await saveUserDataToDatabase(user.uid, email);
+
                 navigate("/");
-            } catch {
+            } catch (error) {
+                console.error("Error creating user:", error);
                 setNotice("Sorry, something went wrong. Please try again.");
-            }     
+            }
         } else {
             setNotice("Passwords don't match. Please try again.");
         }
@@ -32,6 +54,18 @@ const Signup = () => {
                 <h2 className="signup-title">Sign Up</h2>
                 {notice && <div className="signup-notice">{notice}</div>}
                 <form onSubmit={signupWithUsernameAndPassword}>
+                    <div className="form-group">
+                        <label htmlFor="signupFirstName" className="signup-label">First Name</label>
+                        <input type="text" className="form-control signup-input" id="signupFirstName" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="signupLastName" className="signup-label">Last Name</label>
+                        <input type="text" className="form-control signup-input" id="signupLastName" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="signupPhone" className="signup-label">Phone Number</label>
+                        <input type="tel" className="form-control signup-input" id="signupPhone" placeholder="Phone Number" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                    </div>
                     <div className="form-group">
                         <label htmlFor="signupEmail" className="signup-label">Email address</label>
                         <input type="email" className="form-control signup-input" id="signupEmail" placeholder="name@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
