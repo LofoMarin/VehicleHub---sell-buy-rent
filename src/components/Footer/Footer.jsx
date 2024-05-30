@@ -7,12 +7,12 @@ import "../../styles/footer.css";
 const quickLinks = [
   {
     path: "/about",
-    display: "About",
+    display: "Acerca de nosotros",
   },
 
   {
     path: "#",
-    display: "Privacy Policy",
+    display: "Política de Privacidad",
   },
 
   {
@@ -26,7 +26,7 @@ const quickLinks = [
 
   {
     path: "/contact",
-    display: "Contact",
+    display: "Contacto",
   },
 ];
 
@@ -49,10 +49,7 @@ const Footer = () => {
               </h1>
             </div>
             <p className="footer__logo-content">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Consequuntur, distinctio, itaque reiciendis ab cupiditate harum ex
-              quam veniam, omnis expedita animi quibusdam obcaecati mollitia?
-              Delectus et ad illo recusandae temporibus?
+            Tu Viaje Comienza Aquí
             </p>
           </Col>
 
@@ -75,9 +72,9 @@ const Footer = () => {
               <p className="office__info">Universidad del Norte</p>
               <p className="office__info">Telefono: +57 3023713081</p>
 
-              <p className="office__info">Email: xxxx@gmail.com</p>
+              <p className="office__info">Email: jsacosta@VehicleHub.com</p>
 
-              <p className="office__info">Office Time: 10am - 7pm</p>
+              <p className="office__info">Horario de Oficinas: 10am - 7pm</p>
             </div>
           </Col>
 
